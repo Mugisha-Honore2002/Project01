@@ -1,8 +1,22 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./Components/Home"
+import InputTodo from "./Components/InputTodo";
+import ListTodo from "./Components/ListTodo";
+
+
+
+
 function App() {
   return (
-    <div className="bg-blue-500 text-white p-10 text-3xl">
-      Tailwind is working 🚀
-    </div>
+    <>
+    <Router>
+      <Routes>
+        <Route path="/" Component={Home} />
+        <Route path="/InputTodo" Component={InputTodo}/>
+        <Route path="/ListTodo" Component={ListTodo}/>
+      </Routes>
+    </Router>
+    </>
   );
 }
 
