@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-const InputTodo = () => {
+const InputTodo = ({ refreshTodos }) => {
 
-  const [description, setDescription] = useState("");
+  const [discription, setDiscription] = useState("");
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
 
     try {
-      const body = { description };
+      const body = { discription };
 
       const response = await fetch("http://localhost:5000/todoss", {
         method: "POST",
@@ -16,7 +16,10 @@ const InputTodo = () => {
         body: JSON.stringify(body)
       });
 
-      setDescription("");
+      console.log(response);
+
+      setDiscription("");      // clear input
+      if (refreshTodos) refreshTodos(); // refresh list automatically
 
     } catch (err) {
       console.error(err.message);
@@ -29,8 +32,8 @@ const InputTodo = () => {
         <input
           type="text"
           className="h-10 border-none ml-[17px] rounded-l-full w-[480px] focus:outline-none"
-          value={description}
-          onChange={e => setDescription(e.target.value)}
+          value={discription}
+          onChange={e => setDiscription(e.target.value)}
         />
       </div>
 
