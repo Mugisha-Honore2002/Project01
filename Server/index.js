@@ -2,12 +2,14 @@ const express = require("express");
 const app = express();
 const cors = require("cors"); 
 const db = require("./db");
+const dotenv = require("dotenv");
 
 
 // ======== MIDDLEWARE =========
 
 app.use(cors());
 app.use(express.json());
+dotenv.config()
 
 // ======== ROUTES ============
 app.post("/todoss", async(req,res)=>{
