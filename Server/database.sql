@@ -11,3 +11,8 @@ CREATE TABLE todo(
     email VARCHAR(255);
     passwords VARCHAR(255)
     );
+
+    INSERT INTO todo (description) VALUES('home to me');
+
+    ALTER TABLE todo
+RENAME COLUMN discription TO description;
